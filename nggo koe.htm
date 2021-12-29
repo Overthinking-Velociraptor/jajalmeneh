@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Page Title</title>
+    </head>
+    <body>
+        <div class='position-absolute top-50 start-50 translate-middle'>
+            <button id='button' class='btn btn-primary btn-lg' onclick='mulai()'> Click Here! </button>
+            <audio id='bgMusic' src='https://media1.vocaroo.com/mp3/1HqAgkZOOyPI' loop></audio>
+            <div id='iloveyou' style='display: none;'>
+                <h2 class='text-center'>Aku sayang kamu<br>&#10084;&#65039;</h2>
+            </div>
+        </div>
+        <span id='hati' class='fixed-bottom text-center my-3' onclick='hati()'></span>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+        <script type="text/javascript">
+            const author = 'Kris';
+            document.getElementById('hati').innerHTML = `Made with &#10084;&#65039; by ${author}`;
+            const swals = Swal.mixin({
+                cancelButtonColor: '#d33',
+                confirmButtonColor: '#3085d6',
+            });
+            async function mulai(){
+            	audio = document.getElementById("bgMusic");
+            if (!audioPlaying) audio.play();
+            else audio.pause();
+            audioPlaying = !audioPlaying;
+                await swals.fire('Halo Manis', 'Aku bikin sesuatu nih', 'question');
+                await swals.fire('Tapi jawabnya jujur ya');
+                await swals.fire('Jangan boong lho ya','','error');
+                var { value: nama } = await swals.fire({
+                    title: 'Kasi nama kamu dulu',
+                    input: 'text',
+                    showCancelButton: true,
+                });
+                if(nama){
+                    var { isConfirmed: seneng } = await swals.fire({
+                        title: `${nama} seneng ngga kemaren malem nonton bareng?`,
+                        confirmButtonText: 'seneng',
+                        cancelButtonText: 'NGGA! <- jahat sih kalo milih ini :(',
+                        showCancelButton: true,
+                    });
+                    if(seneng){
+                        await swals.fire('Mas juga seneng banget kemaren bisa nonton sama kamu');
+                        await swals.fire('Mas kira pas pertama ngajakin nonton dulu bakal bilang ngga atau nolak gimana');
+                        await swals.fire('eh ternyata engga dong hehe');
+                        await swals.fire('dari semalem kepikiran terus sama omongan kamu');
+                        await swals.fire('yang ituu.. baru pertama pulang paling malem di atas jam 10');
+                        await swals.fire('kamu cerita juga kalo sama pacar kamu yang dulu apa sama temen kalo pulang kemalemem mesti di telponin XD')
+                        await swals.fire('yaa mas sih mikirnya kok bisa ya? apa bener papa sama mama udah kasi kepercayaan gitu? XD');
+                        await swals.fire('kalo iya sih yaa syukur deh jadi kan kamu ngga kena omel, mas juga jadi ngga punya rasa pekewuh wkwk');
+                        await swals.fire('eh tapi', 'Kamu ngerti pekewuh ngga?', 'question');
+                        var { isConfirmed: ngerti } = await swals.fire({
+                        title: `${nama} ngerti pekewuh ngga?`,
+                        confirmButtonText: 'ngerti',
+                        cancelButtonText: 'ngga hehe',
+                        showCancelButton: true,
+                    });
+                        var { value: persen } = await swals.fire({
+                            title: 'Seberapa sayang emangnya?',
+                            icon: 'question',
+                            input: 'range',
+                            inputLabel: 'Antara 1-100 ya',
+                            inputAttributes: {
+                                min: 1,
+                                max: 100,
+                            },
+                            inputValue: 50
+                        });
+                        if(persen){
+                            await swals.fire(`Makasih ya udah sayang sama ${author} ${persen}%`);
+                            var { isConfirmed: kangen } = await swals.fire({
+                                title: 'Kangen ga sama aku?',
+                                confirmButtonText: 'Kangen',
+                                cancelButtonText: 'Gak!',
+                                showCancelButton: true,
+                            });
+                            if(kangen){
+                                await swals.fire('Aku juga, Kangen nih');
+                                await swals.fire('Terakhir deh sayang');
+                                await swals.fire('Coba klik ikon hati di paling bawah dong');
+                            } else {
+                                //gak kangen
+                            }
+                        }
+                    } else {
+                        //NGGA! <- jahat sih kalo milih ini :(
+                            await swals.fire('maaf ya bikin kamu risih :(');
+                            await swals.fire('aku minta maaf ya kalo bikin kamu ngga nyaman')
+                    }
+                } else {
+                    //gak isi nama
+                
+            
+               
+        function hati(){
+            document.getElementById('button').style = 'display: none';
+            document.getElementById('iloveyou').style = '';
+            startConfetti();
+        }
+        var audioPlaying = false;
+        function music(){
+            var audio = document.getElementById("bgMusic");
+            if (!audioPlaying) audio.play();
+            else audio.pause();
+            audioPlaying = !audioPlaying;
+        }
+        </script>
+        <script type="text/javascript" src="https://www.cssscript.com/demo/confetti-falling-animation/confetti.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <style>
+    body {
+background-image : url("https://media1.giphy.com/media/a9QBC2aru310k/giphy.gif?cid=790b7611533f054e8ed4a6db457afc4597adb3b40abf1d8b&rid=giphy.gif&ct=g");
+background-color : #cccccc;
+}
+    </style>
+    </body>
+</html>
